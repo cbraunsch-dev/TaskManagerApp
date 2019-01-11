@@ -16,6 +16,8 @@
 		66F72F7221E86008006B6878 /* ManageTasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66F72F7121E86008006B6878 /* ManageTasks.storyboard */; };
 		66F72F7421E86063006B6878 /* ManageTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F72F7321E86063006B6878 /* ManageTasksViewController.swift */; };
 		66F72F7621E8607F006B6878 /* ManageTasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F72F7521E8607F006B6878 /* ManageTasksViewModel.swift */; };
+		66F72F7821E8650E006B6878 /* IoCContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F72F7721E8650E006B6878 /* IoCContainer.swift */; };
+		66F72F7B21E86538006B6878 /* SwinjectStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F72F7A21E86538006B6878 /* SwinjectStoryboard+Extension.swift */; };
 		AFD7FEC14D8F309D03888DD0 /* Pods_TaskManagerAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBC2E075B85EB17C2B497667 /* Pods_TaskManagerAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +45,8 @@
 		66F72F7121E86008006B6878 /* ManageTasks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ManageTasks.storyboard; sourceTree = "<group>"; };
 		66F72F7321E86063006B6878 /* ManageTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTasksViewController.swift; sourceTree = "<group>"; };
 		66F72F7521E8607F006B6878 /* ManageTasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTasksViewModel.swift; sourceTree = "<group>"; };
+		66F72F7721E8650E006B6878 /* IoCContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoCContainer.swift; sourceTree = "<group>"; };
+		66F72F7A21E86538006B6878 /* SwinjectStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		B1D50C91E74DA66F3906A234 /* Pods_TaskManagerApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaskManagerApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D563DF693EE90E37C1A4BD44 /* Pods-TaskManagerAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskManagerAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaskManagerAppTests/Pods-TaskManagerAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		E421B6C11A8347B4B613F48E /* Pods-TaskManagerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskManagerApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaskManagerApp/Pods-TaskManagerApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -93,6 +97,7 @@
 		661F9DE621E85E130000F457 /* TaskManagerApp */ = {
 			isa = PBXGroup;
 			children = (
+				66F72F7921E86526006B6878 /* Extensions */,
 				66F72F7021E85FE7006B6878 /* Storyboards */,
 				66F72F6F21E85FDB006B6878 /* ViewModels */,
 				66F72F6E21E85FD4006B6878 /* ViewControllers */,
@@ -101,6 +106,7 @@
 				661F9DEE21E85E150000F457 /* Assets.xcassets */,
 				661F9DF021E85E150000F457 /* LaunchScreen.storyboard */,
 				661F9DF321E85E150000F457 /* Info.plist */,
+				66F72F7721E8650E006B6878 /* IoCContainer.swift */,
 			);
 			path = TaskManagerApp;
 			sourceTree = "<group>";
@@ -136,6 +142,14 @@
 				66F72F7121E86008006B6878 /* ManageTasks.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		66F72F7921E86526006B6878 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				66F72F7A21E86538006B6878 /* SwinjectStoryboard+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		9897E8A1DFB93F9CA89456D3 /* Frameworks */ = {
@@ -370,8 +384,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66F72F7821E8650E006B6878 /* IoCContainer.swift in Sources */,
 				66F72F7621E8607F006B6878 /* ManageTasksViewModel.swift in Sources */,
 				661F9DEA21E85E130000F457 /* ViewController.swift in Sources */,
+				66F72F7B21E86538006B6878 /* SwinjectStoryboard+Extension.swift in Sources */,
 				661F9DE821E85E130000F457 /* AppDelegate.swift in Sources */,
 				66F72F7421E86063006B6878 /* ManageTasksViewController.swift in Sources */,
 			);
