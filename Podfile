@@ -10,6 +10,7 @@ target 'TaskManagerApp' do
   pod 'RxCocoa',    '= 4.4.0'
   pod 'Swinject'
   pod 'SwinjectStoryboard'
+  pod 'SnapKit', '~> 4.0.0'
 
   target 'TaskManagerAppTests' do
     inherit! :search_paths

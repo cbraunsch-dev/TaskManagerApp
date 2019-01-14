@@ -14,7 +14,9 @@ protocol ManageTasksViewModelInputs {
     var viewDidLoad: PublishSubject<Void> { get }
 }
 
-protocol ManageTasksViewModelOutputs {}
+protocol ManageTasksViewModelOutputs {
+    var sections: PublishSubject<[GenericTableSection]> { get }
+}
 
 protocol ManageTasksViewModelType {
     var inputs: ManageTasksViewModelInputs { get }
@@ -28,10 +30,24 @@ class ManageTasksViewModel: ManageTasksViewModelType, ManageTasksViewModelInputs
     var outputs: ManageTasksViewModelOutputs { return self }
     
     let viewDidLoad = PublishSubject<Void>()
+    let sections = PublishSubject<[GenericTableSection]>()
     
     init() {
         self.inputs.viewDidLoad
-            .subscribe(onNext: { print("Hello ViewDidLoad World!") })
+            .map { _ -> [GenericTableSection] in
+                self.createTableSections()
+            }.bind(to: self.outputs.sections)
             .disposed(by: self.bag)
     }
+    
+    private func createTableSections() -> [GenericTableSection] {
+        //Create empty placeholder
+        let item = GenericTableItem(title: L10n.Table.Item.Placeholder.noTasksAvailable, action: ManageTasksTableItemAction.none, type: GenericItemType.emptyPlaceholder)
+        let section = GenericTableSection(items: [item], title: nil, footer: nil)
+        return [section]
+    }
+}
+
+enum ManageTasksTableItemAction: TableItemAction {
+    case none
 }

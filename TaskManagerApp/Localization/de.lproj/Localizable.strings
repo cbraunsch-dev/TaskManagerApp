@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  TaskManagerApp
+
+  Created by Chris Braunschweiler on 14.01.19.
+  Copyright © 2019 braunsch. All rights reserved.
+*/
+
+"title.viewTasks" = "Deine Aufgaben";
+
+"table.item.placeholder.noTasksAvailable" = "Du hast noch keine Aufgaben hinzugefügt";
