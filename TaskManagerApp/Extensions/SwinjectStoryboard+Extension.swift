@@ -15,5 +15,8 @@ extension SwinjectStoryboard {
         defaultContainer.storyboardInitCompleted(ManageTasksViewController.self) { r, c in
             c.viewModel = appContainer.resolve(ManageTasksViewModelType.self)!
         }
+        defaultContainer.storyboardInitCompleted(EditTaskViewController.self) { r, c in
+            c.viewModel = appContainer.resolve(EditTaskViewModelType.self)!
+        }
     }
 }

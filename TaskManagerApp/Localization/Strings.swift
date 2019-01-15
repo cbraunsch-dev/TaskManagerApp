@@ -12,6 +12,23 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name
 internal enum L10n {
 
+  internal enum Error {
+    /// An error occurred
+    internal static let generic = L10n.tr("Localizable", "error.generic")
+    internal enum DataAccessor {
+      /// Failed to access the local database
+      internal static let failedToAccessDatabase = L10n.tr("Localizable", "error.dataAccessor.failedToAccessDatabase")
+      /// The item you are trying to delete could not be found in the local database
+      internal static let itemToDeleteNotFound = L10n.tr("Localizable", "error.dataAccessor.itemToDeleteNotFound")
+      /// The device has run out of storage space
+      internal static let outOfDiskSpace = L10n.tr("Localizable", "error.dataAccessor.outOfDiskSpace")
+    }
+    internal enum Generic {
+      /// Error
+      internal static let short = L10n.tr("Localizable", "error.generic.short")
+    }
+  }
+
   internal enum Table {
     internal enum Item {
       internal enum Placeholder {
@@ -22,6 +39,8 @@ internal enum L10n {
   }
 
   internal enum Title {
+    /// Edit Task
+    internal static let editTask = L10n.tr("Localizable", "title.editTask")
     /// Your Tasks
     internal static let viewTasks = L10n.tr("Localizable", "title.viewTasks")
   }

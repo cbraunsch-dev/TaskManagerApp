@@ -28,6 +28,29 @@
 		665961E621EC551900E6ED5C /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665961E521EC551900E6ED5C /* ReusableView.swift */; };
 		665961E821EC555000E6ED5C /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665961E721EC555000E6ED5C /* UITableViewCell+Extension.swift */; };
 		665961EA21EC556700E6ED5C /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665961E921EC556700E6ED5C /* UITableView+Extension.swift */; };
+		665961EC21EC59F800E6ED5C /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665961EB21EC59F800E6ED5C /* SegueHandlerType.swift */; };
+		665961EE21EC5A6900E6ED5C /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665961ED21EC5A6900E6ED5C /* EditTaskViewController.swift */; };
+		66D38A1721ED94AB003274D4 /* EditTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A1621ED94AB003274D4 /* EditTaskViewModel.swift */; };
+		66D38A1921ED95BD003274D4 /* TitleValueTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A1821ED95BD003274D4 /* TitleValueTableItem.swift */; };
+		66D38A1B21ED95F9003274D4 /* TitleValueTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A1A21ED95F9003274D4 /* TitleValueTableSection.swift */; };
+		66D38A1E21ED9703003274D4 /* LoggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A1D21ED9703003274D4 /* LoggingService.swift */; };
+		66D38A2121ED9820003274D4 /* TaskEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A2021ED9820003274D4 /* TaskEntity.swift */; };
+		66D38A2421ED98D4003274D4 /* TaskDataAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A2321ED98D4003274D4 /* TaskDataAccessor.swift */; };
+		66D38A2621ED9A01003274D4 /* LocalTaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A2521ED9A01003274D4 /* LocalTaskService.swift */; };
+		66D38A2821ED9CB6003274D4 /* ResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A2721ED9CB6003274D4 /* ResultType.swift */; };
+		66D38A2A21ED9CD3003274D4 /* OperationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A2921ED9CD3003274D4 /* OperationResult.swift */; };
+		66D38A2C21ED9CF4003274D4 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A2B21ED9CF4003274D4 /* ErrorType.swift */; };
+		66D38A2E21ED9D18003274D4 /* ResultConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A2D21ED9D18003274D4 /* ResultConverter.swift */; };
+		66D38A3021ED9D74003274D4 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A2F21ED9D74003274D4 /* Errors.swift */; };
+		66D38A3221ED9DD2003274D4 /* ErrorMessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A3121ED9DD2003274D4 /* ErrorMessageService.swift */; };
+		66D38A3421ED9F45003274D4 /* ErrorEmissionCapable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A3321ED9F45003274D4 /* ErrorEmissionCapable.swift */; };
+		66D38A3621ED9F77003274D4 /* ErrorBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A3521ED9F77003274D4 /* ErrorBindable.swift */; };
+		66D38A3821EDA12F003274D4 /* EditTaskViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A3721EDA12F003274D4 /* EditTaskViewControllerSnapshotTests.swift */; };
+		66D38A3A21EDA222003274D4 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A3921EDA222003274D4 /* Mocks.swift */; };
+		66D38A3D21EDA802003274D4 /* TitleEditableValueContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A3C21EDA802003274D4 /* TitleEditableValueContentView.swift */; };
+		66D38A3F21EDA84E003274D4 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A3E21EDA84E003274D4 /* AppConstants.swift */; };
+		66D38A4121EDA9A2003274D4 /* TitleEditableValueCellContentViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A4021EDA9A2003274D4 /* TitleEditableValueCellContentViewSnapshotTests.swift */; };
+		66D38A4421EDAA64003274D4 /* TitleEditableValueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A4321EDAA64003274D4 /* TitleEditableValueTableViewCell.swift */; };
 		66F72F7221E86008006B6878 /* ManageTasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66F72F7121E86008006B6878 /* ManageTasks.storyboard */; };
 		66F72F7421E86063006B6878 /* ManageTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F72F7321E86063006B6878 /* ManageTasksViewController.swift */; };
 		66F72F7621E8607F006B6878 /* ManageTasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F72F7521E8607F006B6878 /* ManageTasksViewModel.swift */; };
@@ -74,6 +97,29 @@
 		665961E521EC551900E6ED5C /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		665961E721EC555000E6ED5C /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		665961E921EC556700E6ED5C /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		665961EB21EC59F800E6ED5C /* SegueHandlerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
+		665961ED21EC5A6900E6ED5C /* EditTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewController.swift; sourceTree = "<group>"; };
+		66D38A1621ED94AB003274D4 /* EditTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewModel.swift; sourceTree = "<group>"; };
+		66D38A1821ED95BD003274D4 /* TitleValueTableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleValueTableItem.swift; sourceTree = "<group>"; };
+		66D38A1A21ED95F9003274D4 /* TitleValueTableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleValueTableSection.swift; sourceTree = "<group>"; };
+		66D38A1D21ED9703003274D4 /* LoggingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingService.swift; sourceTree = "<group>"; };
+		66D38A2021ED9820003274D4 /* TaskEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEntity.swift; sourceTree = "<group>"; };
+		66D38A2321ED98D4003274D4 /* TaskDataAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDataAccessor.swift; sourceTree = "<group>"; };
+		66D38A2521ED9A01003274D4 /* LocalTaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTaskService.swift; sourceTree = "<group>"; };
+		66D38A2721ED9CB6003274D4 /* ResultType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultType.swift; sourceTree = "<group>"; };
+		66D38A2921ED9CD3003274D4 /* OperationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationResult.swift; sourceTree = "<group>"; };
+		66D38A2B21ED9CF4003274D4 /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
+		66D38A2D21ED9D18003274D4 /* ResultConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultConverter.swift; sourceTree = "<group>"; };
+		66D38A2F21ED9D74003274D4 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		66D38A3121ED9DD2003274D4 /* ErrorMessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessageService.swift; sourceTree = "<group>"; };
+		66D38A3321ED9F45003274D4 /* ErrorEmissionCapable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorEmissionCapable.swift; sourceTree = "<group>"; };
+		66D38A3521ED9F77003274D4 /* ErrorBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorBindable.swift; sourceTree = "<group>"; };
+		66D38A3721EDA12F003274D4 /* EditTaskViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
+		66D38A3921EDA222003274D4 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
+		66D38A3C21EDA802003274D4 /* TitleEditableValueContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEditableValueContentView.swift; sourceTree = "<group>"; };
+		66D38A3E21EDA84E003274D4 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		66D38A4021EDA9A2003274D4 /* TitleEditableValueCellContentViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEditableValueCellContentViewSnapshotTests.swift; sourceTree = "<group>"; };
+		66D38A4321EDAA64003274D4 /* TitleEditableValueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEditableValueTableViewCell.swift; sourceTree = "<group>"; };
 		66F72F7121E86008006B6878 /* ManageTasks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ManageTasks.storyboard; sourceTree = "<group>"; };
 		66F72F7321E86063006B6878 /* ManageTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTasksViewController.swift; sourceTree = "<group>"; };
 		66F72F7521E8607F006B6878 /* ManageTasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTasksViewModel.swift; sourceTree = "<group>"; };
@@ -129,6 +175,11 @@
 		661F9DE621E85E130000F457 /* TaskManagerApp */ = {
 			isa = PBXGroup;
 			children = (
+				66D38A4221EDAA4D003274D4 /* TableViewCells */,
+				66D38A3B21EDA7F4003274D4 /* Views */,
+				66D38A2221ED98BC003274D4 /* DataAccessors */,
+				66D38A1F21ED9815003274D4 /* Entities */,
+				66D38A1C21ED96EB003274D4 /* Services */,
 				665961D621EC513200E6ED5C /* TableSections */,
 				665961D521EC512A00E6ED5C /* TableItems */,
 				665961C821EC4D5D00E6ED5C /* Localization */,
@@ -145,6 +196,15 @@
 				665961DD21EC519D00E6ED5C /* TableItemAction.swift */,
 				665961E321EC532500E6ED5C /* TableDisplayCapable.swift */,
 				665961E521EC551900E6ED5C /* ReusableView.swift */,
+				665961EB21EC59F800E6ED5C /* SegueHandlerType.swift */,
+				66D38A2721ED9CB6003274D4 /* ResultType.swift */,
+				66D38A2921ED9CD3003274D4 /* OperationResult.swift */,
+				66D38A2B21ED9CF4003274D4 /* ErrorType.swift */,
+				66D38A2D21ED9D18003274D4 /* ResultConverter.swift */,
+				66D38A2F21ED9D74003274D4 /* Errors.swift */,
+				66D38A3321ED9F45003274D4 /* ErrorEmissionCapable.swift */,
+				66D38A3521ED9F77003274D4 /* ErrorBindable.swift */,
+				66D38A3E21EDA84E003274D4 /* AppConstants.swift */,
 			);
 			path = TaskManagerApp;
 			sourceTree = "<group>";
@@ -157,6 +217,7 @@
 				661F9DFE21E85E150000F457 /* Info.plist */,
 				665961BE21EC46C700E6ED5C /* FBSnapshotTestCase+Extension.swift */,
 				665961C021EC470100E6ED5C /* AssertionDataExtractionCapable.swift */,
+				66D38A3921EDA222003274D4 /* Mocks.swift */,
 			);
 			path = TaskManagerAppTests;
 			sourceTree = "<group>";
@@ -165,6 +226,8 @@
 			isa = PBXGroup;
 			children = (
 				665961C221EC472E00E6ED5C /* ManageTasksViewControllerSnapshotTests.swift */,
+				66D38A3721EDA12F003274D4 /* EditTaskViewControllerSnapshotTests.swift */,
+				66D38A4021EDA9A2003274D4 /* TitleEditableValueCellContentViewSnapshotTests.swift */,
 			);
 			path = SnapshotTestCases;
 			sourceTree = "<group>";
@@ -183,6 +246,7 @@
 			children = (
 				665961D721EC513F00E6ED5C /* TableItem.swift */,
 				665961DF21EC51D100E6ED5C /* GenericTableItem.swift */,
+				66D38A1821ED95BD003274D4 /* TitleValueTableItem.swift */,
 			);
 			path = TableItems;
 			sourceTree = "<group>";
@@ -192,14 +256,58 @@
 			children = (
 				665961D921EC515600E6ED5C /* TableSection.swift */,
 				665961E121EC51E800E6ED5C /* GenericTableSection.swift */,
+				66D38A1A21ED95F9003274D4 /* TitleValueTableSection.swift */,
 			);
 			path = TableSections;
+			sourceTree = "<group>";
+		};
+		66D38A1C21ED96EB003274D4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				66D38A1D21ED9703003274D4 /* LoggingService.swift */,
+				66D38A2521ED9A01003274D4 /* LocalTaskService.swift */,
+				66D38A3121ED9DD2003274D4 /* ErrorMessageService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		66D38A1F21ED9815003274D4 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				66D38A2021ED9820003274D4 /* TaskEntity.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		66D38A2221ED98BC003274D4 /* DataAccessors */ = {
+			isa = PBXGroup;
+			children = (
+				66D38A2321ED98D4003274D4 /* TaskDataAccessor.swift */,
+			);
+			path = DataAccessors;
+			sourceTree = "<group>";
+		};
+		66D38A3B21EDA7F4003274D4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				66D38A3C21EDA802003274D4 /* TitleEditableValueContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		66D38A4221EDAA4D003274D4 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				66D38A4321EDAA64003274D4 /* TitleEditableValueTableViewCell.swift */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		66F72F6E21E85FD4006B6878 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				66F72F7321E86063006B6878 /* ManageTasksViewController.swift */,
+				665961ED21EC5A6900E6ED5C /* EditTaskViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -208,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				66F72F7521E8607F006B6878 /* ManageTasksViewModel.swift */,
+				66D38A1621ED94AB003274D4 /* EditTaskViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -486,22 +595,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				66F72F7821E8650E006B6878 /* IoCContainer.swift in Sources */,
+				66D38A3621ED9F77003274D4 /* ErrorBindable.swift in Sources */,
+				66D38A1E21ED9703003274D4 /* LoggingService.swift in Sources */,
 				66F72F7621E8607F006B6878 /* ManageTasksViewModel.swift in Sources */,
+				66D38A2121ED9820003274D4 /* TaskEntity.swift in Sources */,
+				66D38A2821ED9CB6003274D4 /* ResultType.swift in Sources */,
+				66D38A3D21EDA802003274D4 /* TitleEditableValueContentView.swift in Sources */,
 				665961D421EC508600E6ED5C /* Strings.swift in Sources */,
+				66D38A2C21ED9CF4003274D4 /* ErrorType.swift in Sources */,
+				66D38A2421ED98D4003274D4 /* TaskDataAccessor.swift in Sources */,
+				66D38A4421EDAA64003274D4 /* TitleEditableValueTableViewCell.swift in Sources */,
+				66D38A2621ED9A01003274D4 /* LocalTaskService.swift in Sources */,
+				66D38A2E21ED9D18003274D4 /* ResultConverter.swift in Sources */,
 				665961E021EC51D100E6ED5C /* GenericTableItem.swift in Sources */,
 				665961C521EC482400E6ED5C /* StoryboardName.swift in Sources */,
 				665961E821EC555000E6ED5C /* UITableViewCell+Extension.swift in Sources */,
+				66D38A3021ED9D74003274D4 /* Errors.swift in Sources */,
 				665961E421EC532500E6ED5C /* TableDisplayCapable.swift in Sources */,
 				66F72F7B21E86538006B6878 /* SwinjectStoryboard+Extension.swift in Sources */,
 				665961DA21EC515600E6ED5C /* TableSection.swift in Sources */,
+				66D38A3F21EDA84E003274D4 /* AppConstants.swift in Sources */,
+				66D38A3421ED9F45003274D4 /* ErrorEmissionCapable.swift in Sources */,
 				665961DC21EC518B00E6ED5C /* TableItemType.swift in Sources */,
 				665961EA21EC556700E6ED5C /* UITableView+Extension.swift in Sources */,
+				66D38A2A21ED9CD3003274D4 /* OperationResult.swift in Sources */,
+				66D38A3221ED9DD2003274D4 /* ErrorMessageService.swift in Sources */,
+				66D38A1921ED95BD003274D4 /* TitleValueTableItem.swift in Sources */,
+				66D38A1721ED94AB003274D4 /* EditTaskViewModel.swift in Sources */,
 				661F9DE821E85E130000F457 /* AppDelegate.swift in Sources */,
 				665961E621EC551900E6ED5C /* ReusableView.swift in Sources */,
 				665961DE21EC519D00E6ED5C /* TableItemAction.swift in Sources */,
+				665961EE21EC5A6900E6ED5C /* EditTaskViewController.swift in Sources */,
 				665961D821EC513F00E6ED5C /* TableItem.swift in Sources */,
 				665961E221EC51E800E6ED5C /* GenericTableSection.swift in Sources */,
+				665961EC21EC59F800E6ED5C /* SegueHandlerType.swift in Sources */,
 				66F72F7421E86063006B6878 /* ManageTasksViewController.swift in Sources */,
+				66D38A1B21ED95F9003274D4 /* TitleValueTableSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,10 +638,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66D38A3821EDA12F003274D4 /* EditTaskViewControllerSnapshotTests.swift in Sources */,
 				665961C321EC472E00E6ED5C /* ManageTasksViewControllerSnapshotTests.swift in Sources */,
+				66D38A4121EDA9A2003274D4 /* TitleEditableValueCellContentViewSnapshotTests.swift in Sources */,
 				661F9DFD21E85E150000F457 /* TaskManagerAppTests.swift in Sources */,
 				665961BF21EC46C700E6ED5C /* FBSnapshotTestCase+Extension.swift in Sources */,
 				665961C121EC470100E6ED5C /* AssertionDataExtractionCapable.swift in Sources */,
+				66D38A3A21EDA222003274D4 /* Mocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

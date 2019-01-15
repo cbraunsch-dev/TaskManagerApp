@@ -7,5 +7,12 @@
 */
 
 "title.viewTasks" = "Your Tasks";
+"title.editTask" = "Edit Task";
 
 "table.item.placeholder.noTasksAvailable" = "You have not added any tasks yet";
+
+"error.generic.short" = "Error";
+"error.generic" = "An error occurred";
+"error.dataAccessor.failedToAccessDatabase" = "Failed to access the local database";
+"error.dataAccessor.outOfDiskSpace" = "The device has run out of storage space";
+"error.dataAccessor.itemToDeleteNotFound" = "The item you are trying to delete could not be found in the local database";

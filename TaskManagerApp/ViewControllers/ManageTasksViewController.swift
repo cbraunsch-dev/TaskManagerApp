@@ -11,12 +11,16 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
-class ManageTasksViewController: UIViewController, TableDisplayCapable {
+class ManageTasksViewController: UIViewController, TableDisplayCapable, SegueHandlerType {
     private let bag = DisposeBag()
     let tableView = UITableView()
     
     var viewModel: ManageTasksViewModelType!
     var sections = [GenericTableSection]()
+    
+    enum SegueIdentifier: String {
+        case addTask
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

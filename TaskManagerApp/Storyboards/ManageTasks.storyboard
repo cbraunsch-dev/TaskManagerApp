@@ -20,11 +20,32 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="bdn-63-ojI"/>
                     </view>
-                    <navigationItem key="navigationItem" id="JNM-jK-lw7"/>
+                    <navigationItem key="navigationItem" id="JNM-jK-lw7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6yY-yk-18v">
+                            <connections>
+                                <segue destination="4UH-jb-vq0" kind="presentation" identifier="addTask" id="KTE-xV-HVW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Wy-Sx-cZS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1116" y="177.66116941529236"/>
+        </scene>
+        <!--Edit Task View Controller-->
+        <scene sceneID="Zau-z5-LJJ">
+            <objects>
+                <viewController storyboardIdentifier="EditTaskViewController" id="4UH-jb-vq0" customClass="EditTaskViewController" customModule="TaskManagerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8Av-hD-YhM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="6iF-tk-oUw"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4je-Dn-bza" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2013" y="176"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cdB-4D-Bsz">
