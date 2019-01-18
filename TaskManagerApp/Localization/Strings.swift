@@ -12,6 +12,23 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name
 internal enum L10n {
 
+  internal enum Action {
+    internal enum Task {
+      internal enum EditName {
+        /// E.g. Buy food
+        internal static let hint = L10n.tr("Localizable", "action.task.editName.hint")
+        /// Name
+        internal static let title = L10n.tr("Localizable", "action.task.editName.title")
+      }
+      internal enum EditNotes {
+        /// Additional notes...
+        internal static let hint = L10n.tr("Localizable", "action.task.editNotes.hint")
+        /// Notes
+        internal static let title = L10n.tr("Localizable", "action.task.editNotes.title")
+      }
+    }
+  }
+
   internal enum Error {
     /// An error occurred
     internal static let generic = L10n.tr("Localizable", "error.generic")

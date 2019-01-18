@@ -1,5 +1,5 @@
 //
-//  TitleEditableValueContentView.swift
+//  TitleValueContentView.swift
 //  TaskManagerApp
 //
 //  Created by Chris Braunschweiler on 15.01.19.
@@ -11,9 +11,9 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
-class TitleEditableValueCellContentView: UIView {
+class TitleValueCellContentView: UIView {
     let title = UILabel()
-    let valueText = UITextField()
+    let value = UILabel()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -27,12 +27,20 @@ class TitleEditableValueCellContentView: UIView {
     
     private func setupView() {
         self.backgroundColor = UIColor.white
-        self.addSubview(self.title)
+        
         self.title.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(self.valueText)
-        self.valueText.translatesAutoresizingMaskIntoConstraints = false
-        self.valueText.font = UIFont.systemFont(ofSize: FontConstants.medium)
-        self.valueText.delegate = self
+        self.value.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.addSubview(self.title)
+        self.addSubview(self.value)
+        
+        self.title.font = UIFont.systemFont(ofSize: FontConstants.medium)
+        self.value.font = UIFont.systemFont(ofSize: FontConstants.medium)
+        
+        self.title.textColor = UIColor.black
+        self.value.textColor = UIColor.darkGray
+        
+        self.value.textAlignment = .right
         
         self.title.snp.makeConstraints { make in
             make.left.equalTo(self)
@@ -40,19 +48,12 @@ class TitleEditableValueCellContentView: UIView {
             make.bottom.equalTo(self)
             make.width.equalTo(self).multipliedBy(0.5)
         }
-        self.valueText.snp.makeConstraints { make in
+        self.value.snp.makeConstraints { make in
             make.left.equalTo(self.title.snp.right)
             make.right.equalTo(self)
             make.top.equalTo(self)
             make.bottom.equalTo(self)
             make.width.equalTo(self).multipliedBy(0.5)
         }
-    }
-}
-
-extension TitleEditableValueCellContentView: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
 }

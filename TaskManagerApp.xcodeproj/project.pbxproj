@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B9E2461ADAC222DE352E41A /* Pods_TaskManagerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D50C91E74DA66F3906A234 /* Pods_TaskManagerApp.framework */; };
+		6613716B21F03B2A00732155 /* Lenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6613716A21F03B2A00732155 /* Lenses.swift */; };
 		661F9DE821E85E130000F457 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661F9DE721E85E130000F457 /* AppDelegate.swift */; };
 		661F9DEF21E85E150000F457 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 661F9DEE21E85E150000F457 /* Assets.xcassets */; };
 		661F9DF221E85E150000F457 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 661F9DF021E85E150000F457 /* LaunchScreen.storyboard */; };
@@ -30,6 +31,7 @@
 		665961EA21EC556700E6ED5C /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665961E921EC556700E6ED5C /* UITableView+Extension.swift */; };
 		665961EC21EC59F800E6ED5C /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665961EB21EC59F800E6ED5C /* SegueHandlerType.swift */; };
 		665961EE21EC5A6900E6ED5C /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665961ED21EC5A6900E6ED5C /* EditTaskViewController.swift */; };
+		66B7CC8C21F193EA00BE8464 /* EditTaskViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B7CC8B21F193EA00BE8464 /* EditTaskViewModelTests.swift */; };
 		66D38A1721ED94AB003274D4 /* EditTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A1621ED94AB003274D4 /* EditTaskViewModel.swift */; };
 		66D38A1921ED95BD003274D4 /* TitleValueTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A1821ED95BD003274D4 /* TitleValueTableItem.swift */; };
 		66D38A1B21ED95F9003274D4 /* TitleValueTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A1A21ED95F9003274D4 /* TitleValueTableSection.swift */; };
@@ -47,10 +49,10 @@
 		66D38A3621ED9F77003274D4 /* ErrorBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A3521ED9F77003274D4 /* ErrorBindable.swift */; };
 		66D38A3821EDA12F003274D4 /* EditTaskViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A3721EDA12F003274D4 /* EditTaskViewControllerSnapshotTests.swift */; };
 		66D38A3A21EDA222003274D4 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A3921EDA222003274D4 /* Mocks.swift */; };
-		66D38A3D21EDA802003274D4 /* TitleEditableValueContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A3C21EDA802003274D4 /* TitleEditableValueContentView.swift */; };
+		66D38A3D21EDA802003274D4 /* TitleValueContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A3C21EDA802003274D4 /* TitleValueContentView.swift */; };
 		66D38A3F21EDA84E003274D4 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A3E21EDA84E003274D4 /* AppConstants.swift */; };
-		66D38A4121EDA9A2003274D4 /* TitleEditableValueCellContentViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A4021EDA9A2003274D4 /* TitleEditableValueCellContentViewSnapshotTests.swift */; };
-		66D38A4421EDAA64003274D4 /* TitleEditableValueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A4321EDAA64003274D4 /* TitleEditableValueTableViewCell.swift */; };
+		66D38A4121EDA9A2003274D4 /* TitleValueCellContentViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A4021EDA9A2003274D4 /* TitleValueCellContentViewSnapshotTests.swift */; };
+		66D38A4421EDAA64003274D4 /* TitleValueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A4321EDAA64003274D4 /* TitleValueTableViewCell.swift */; };
 		66F72F7221E86008006B6878 /* ManageTasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66F72F7121E86008006B6878 /* ManageTasks.storyboard */; };
 		66F72F7421E86063006B6878 /* ManageTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F72F7321E86063006B6878 /* ManageTasksViewController.swift */; };
 		66F72F7621E8607F006B6878 /* ManageTasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F72F7521E8607F006B6878 /* ManageTasksViewModel.swift */; };
@@ -71,6 +73,7 @@
 
 /* Begin PBXFileReference section */
 		3E71482CC1665606DCF9C1FA /* Pods-TaskManagerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskManagerApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaskManagerApp/Pods-TaskManagerApp.release.xcconfig"; sourceTree = "<group>"; };
+		6613716A21F03B2A00732155 /* Lenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lenses.swift; sourceTree = "<group>"; };
 		661F9DE421E85E130000F457 /* TaskManagerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskManagerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		661F9DE721E85E130000F457 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		661F9DEE21E85E150000F457 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,6 +102,7 @@
 		665961E921EC556700E6ED5C /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		665961EB21EC59F800E6ED5C /* SegueHandlerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
 		665961ED21EC5A6900E6ED5C /* EditTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewController.swift; sourceTree = "<group>"; };
+		66B7CC8B21F193EA00BE8464 /* EditTaskViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewModelTests.swift; sourceTree = "<group>"; };
 		66D38A1621ED94AB003274D4 /* EditTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewModel.swift; sourceTree = "<group>"; };
 		66D38A1821ED95BD003274D4 /* TitleValueTableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleValueTableItem.swift; sourceTree = "<group>"; };
 		66D38A1A21ED95F9003274D4 /* TitleValueTableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleValueTableSection.swift; sourceTree = "<group>"; };
@@ -116,10 +120,10 @@
 		66D38A3521ED9F77003274D4 /* ErrorBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorBindable.swift; sourceTree = "<group>"; };
 		66D38A3721EDA12F003274D4 /* EditTaskViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
 		66D38A3921EDA222003274D4 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
-		66D38A3C21EDA802003274D4 /* TitleEditableValueContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEditableValueContentView.swift; sourceTree = "<group>"; };
+		66D38A3C21EDA802003274D4 /* TitleValueContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleValueContentView.swift; sourceTree = "<group>"; };
 		66D38A3E21EDA84E003274D4 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
-		66D38A4021EDA9A2003274D4 /* TitleEditableValueCellContentViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEditableValueCellContentViewSnapshotTests.swift; sourceTree = "<group>"; };
-		66D38A4321EDAA64003274D4 /* TitleEditableValueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEditableValueTableViewCell.swift; sourceTree = "<group>"; };
+		66D38A4021EDA9A2003274D4 /* TitleValueCellContentViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleValueCellContentViewSnapshotTests.swift; sourceTree = "<group>"; };
+		66D38A4321EDAA64003274D4 /* TitleValueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleValueTableViewCell.swift; sourceTree = "<group>"; };
 		66F72F7121E86008006B6878 /* ManageTasks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ManageTasks.storyboard; sourceTree = "<group>"; };
 		66F72F7321E86063006B6878 /* ManageTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTasksViewController.swift; sourceTree = "<group>"; };
 		66F72F7521E8607F006B6878 /* ManageTasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTasksViewModel.swift; sourceTree = "<group>"; };
@@ -205,6 +209,7 @@
 				66D38A3321ED9F45003274D4 /* ErrorEmissionCapable.swift */,
 				66D38A3521ED9F77003274D4 /* ErrorBindable.swift */,
 				66D38A3E21EDA84E003274D4 /* AppConstants.swift */,
+				6613716A21F03B2A00732155 /* Lenses.swift */,
 			);
 			path = TaskManagerApp;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 		661F9DFB21E85E150000F457 /* TaskManagerAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				66B7CC8A21F193CA00BE8464 /* ViewModels */,
 				665961BD21EC43FD00E6ED5C /* SnapshotTestCases */,
 				661F9DFC21E85E150000F457 /* TaskManagerAppTests.swift */,
 				661F9DFE21E85E150000F457 /* Info.plist */,
@@ -227,7 +233,7 @@
 			children = (
 				665961C221EC472E00E6ED5C /* ManageTasksViewControllerSnapshotTests.swift */,
 				66D38A3721EDA12F003274D4 /* EditTaskViewControllerSnapshotTests.swift */,
-				66D38A4021EDA9A2003274D4 /* TitleEditableValueCellContentViewSnapshotTests.swift */,
+				66D38A4021EDA9A2003274D4 /* TitleValueCellContentViewSnapshotTests.swift */,
 			);
 			path = SnapshotTestCases;
 			sourceTree = "<group>";
@@ -261,6 +267,14 @@
 			path = TableSections;
 			sourceTree = "<group>";
 		};
+		66B7CC8A21F193CA00BE8464 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				66B7CC8B21F193EA00BE8464 /* EditTaskViewModelTests.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		66D38A1C21ED96EB003274D4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,7 +304,7 @@
 		66D38A3B21EDA7F4003274D4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				66D38A3C21EDA802003274D4 /* TitleEditableValueContentView.swift */,
+				66D38A3C21EDA802003274D4 /* TitleValueContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -298,7 +312,7 @@
 		66D38A4221EDAA4D003274D4 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				66D38A4321EDAA64003274D4 /* TitleEditableValueTableViewCell.swift */,
+				66D38A4321EDAA64003274D4 /* TitleValueTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -599,12 +613,13 @@
 				66D38A1E21ED9703003274D4 /* LoggingService.swift in Sources */,
 				66F72F7621E8607F006B6878 /* ManageTasksViewModel.swift in Sources */,
 				66D38A2121ED9820003274D4 /* TaskEntity.swift in Sources */,
+				6613716B21F03B2A00732155 /* Lenses.swift in Sources */,
 				66D38A2821ED9CB6003274D4 /* ResultType.swift in Sources */,
-				66D38A3D21EDA802003274D4 /* TitleEditableValueContentView.swift in Sources */,
+				66D38A3D21EDA802003274D4 /* TitleValueContentView.swift in Sources */,
 				665961D421EC508600E6ED5C /* Strings.swift in Sources */,
 				66D38A2C21ED9CF4003274D4 /* ErrorType.swift in Sources */,
 				66D38A2421ED98D4003274D4 /* TaskDataAccessor.swift in Sources */,
-				66D38A4421EDAA64003274D4 /* TitleEditableValueTableViewCell.swift in Sources */,
+				66D38A4421EDAA64003274D4 /* TitleValueTableViewCell.swift in Sources */,
 				66D38A2621ED9A01003274D4 /* LocalTaskService.swift in Sources */,
 				66D38A2E21ED9D18003274D4 /* ResultConverter.swift in Sources */,
 				665961E021EC51D100E6ED5C /* GenericTableItem.swift in Sources */,
@@ -640,11 +655,12 @@
 			files = (
 				66D38A3821EDA12F003274D4 /* EditTaskViewControllerSnapshotTests.swift in Sources */,
 				665961C321EC472E00E6ED5C /* ManageTasksViewControllerSnapshotTests.swift in Sources */,
-				66D38A4121EDA9A2003274D4 /* TitleEditableValueCellContentViewSnapshotTests.swift in Sources */,
+				66D38A4121EDA9A2003274D4 /* TitleValueCellContentViewSnapshotTests.swift in Sources */,
 				661F9DFD21E85E150000F457 /* TaskManagerAppTests.swift in Sources */,
 				665961BF21EC46C700E6ED5C /* FBSnapshotTestCase+Extension.swift in Sources */,
 				665961C121EC470100E6ED5C /* AssertionDataExtractionCapable.swift in Sources */,
 				66D38A3A21EDA222003274D4 /* Mocks.swift in Sources */,
+				66B7CC8C21F193EA00BE8464 /* EditTaskViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

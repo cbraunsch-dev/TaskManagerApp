@@ -1,5 +1,5 @@
 //
-//  TitleEditableValueTableViewCell.swift
+//  TitleValueTableViewCell.swift
 //  TaskManagerApp
 //
 //  Created by Chris Braunschweiler on 15.01.19.
@@ -11,8 +11,8 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
-class TitleEditableValueTableViewCell: UITableViewCell {
-    let titleValueContent = TitleEditableValueCellContentView(frame: CGRect.zero)
+class TitleValueTableViewCell: UITableViewCell {
+    let titleValueContent = TitleValueCellContentView(frame: CGRect.zero)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

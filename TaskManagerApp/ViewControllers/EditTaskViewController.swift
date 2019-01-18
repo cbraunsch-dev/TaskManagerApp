@@ -12,7 +12,7 @@ import RxCocoa
 
 class EditTaskViewController: UIViewController, TableDisplayCapable {
     private let bag = DisposeBag()
-    
+    private let saveButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.save, target: nil, action: nil)
     let tableView = UITableView(frame: CGRect.zero, style: .grouped)
     var sections = [TitleValueTableSection]()
     
@@ -33,13 +33,19 @@ class EditTaskViewController: UIViewController, TableDisplayCapable {
         }
         
         self.setupTable()
-        self.tableView.register(TitleEditableValueTableViewCell.self, forCellReuseIdentifier: String.init(describing: TitleEditableValueTableViewCell.self))
+        self.tableView.register(TitleValueTableViewCell.self, forCellReuseIdentifier: String.init(describing: TitleValueTableViewCell.self))
+        self.navigationItem.rightBarButtonItem = self.saveButton
         
         self.viewModel.outputs.sections.subscribe(onNext: { sections in
             self.sections.removeAll()
             self.sections.append(contentsOf: sections)
             self.tableView.reloadData()
         }).disposed(by: self.bag)
+        self.viewModel.outputs.saveButtonEnabled
+            .bind(to: self.saveButton.rx.isEnabled)
+            .disposed(by: self.bag)
+        
+        self.viewModel.inputs.viewDidLoad.onNext(())
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,24 +57,10 @@ class EditTaskViewController: UIViewController, TableDisplayCapable {
         guard let itemType = item.type as? EditTaskTableItemType else {
             fatalError("Cell items in \(type(of: self)) are of the wrong type")
         }
-        let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as TitleEditableValueTableViewCell
+        let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as TitleValueTableViewCell
         cell.titleValueContent.title.text = item.title
-        cell.titleValueContent.valueText.text = item.value
-        cell.titleValueContent.valueText.placeholder = item.hint
-        cell.titleValueContent.valueText.clearButtonMode = .whileEditing
-        cell.titleValueContent.valueText.autocorrectionType = .no
-        cell.titleValueContent.valueText.keyboardType = .default
-        cell.titleValueContent.valueText.autocapitalizationType = .words
-        switch itemType {
-        case .name:
-            cell.titleValueContent.valueText.rx.text.orEmpty.bind(to: self.viewModel.inputs.nameText).disposed(by: self.bag)
-            break
-        case .notes:
-            cell.titleValueContent.valueText.rx.text.orEmpty.bind(to: self.viewModel.inputs.notesText).disposed(by: self.bag)
-            break
-        }
-        
-        cell.accessoryType = .none
+        cell.titleValueContent.value.text = item.value
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
 }
