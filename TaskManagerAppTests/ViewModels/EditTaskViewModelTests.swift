@@ -115,4 +115,81 @@ class EditTaskViewModelTests: XCTestCase, AssertionDataExtractionCapable {
         }
         XCTAssertEqual(alreadyEnteredNotes, result, "Failed to emit the notes that was already entered")
     }
+    
+    func testSaveButtonTaps_then_saveTask() {
+        //Arrange
+        let expectedName = "Buy groceries"
+        let expectedNotes = "Check out new store"
+        let scheduler1 = TestScheduler(initialClock: 0)
+        let scheduler2 = TestScheduler(initialClock: 0)
+        let scheduler3 = TestScheduler(initialClock: 0)
+        let scheduler4 = TestScheduler(initialClock: 0)
+        scheduler1.createColdObservable([next(100, ())]).asObservable().bind(to: self.testee.inputs.viewDidLoad).disposed(by: self.bag)
+        scheduler2.createColdObservable([next(100, expectedName)]).bind(to: self.testee.inputs.nameText).disposed(by: self.bag)
+        scheduler3.createColdObservable([next(100, expectedNotes)]).bind(to: self.testee.inputs.notesText).disposed(by: self.bag)
+        self.mockLocalTaskService.saveStub = Observable<Void>.empty()
+        scheduler1.start()
+        scheduler2.start()
+        scheduler3.start()
+        
+        //Act
+        scheduler4.createColdObservable([next(100, ())]).bind(to: self.testee.inputs.saveButtonTaps).disposed(by: self.bag)
+        scheduler4.start()
+        
+        //Assert
+        guard let savedTask = self.mockLocalTaskService.savedTask else {
+            XCTFail("Failed to save task")
+            return
+        }
+        XCTAssertEqual(expectedName, savedTask.name)
+        XCTAssertEqual(expectedNotes, savedTask.notes)
+    }
+    
+    func testSaveButtonTaps_when_dataSaved_then_emitSuccess() {
+        //Arrange
+        let scheduler1 = TestScheduler(initialClock: 0)
+        let scheduler2 = TestScheduler(initialClock: 0)
+        let scheduler3 = TestScheduler(initialClock: 0)
+        let scheduler4 = TestScheduler(initialClock: 0)
+        let observer = scheduler4.createObserver(Void.self)
+        self.testee.outputs.taskSaved.subscribe(observer).disposed(by: self.bag)
+        scheduler1.createColdObservable([next(100, ())]).asObservable().bind(to: self.testee.inputs.viewDidLoad).disposed(by: self.bag)
+        scheduler2.createColdObservable([next(100, "Name")]).bind(to: self.testee.inputs.nameText).disposed(by: self.bag)
+        scheduler3.createColdObservable([next(100, "Notes")]).bind(to: self.testee.inputs.notesText).disposed(by: self.bag)
+        self.mockLocalTaskService.saveStub = scheduler4.createColdObservable([next(100, ())]).asObservable()
+        scheduler1.start()
+        scheduler2.start()
+        scheduler3.start()
+        
+        //Act
+        scheduler4.createColdObservable([next(100, ())]).bind(to: self.testee.inputs.saveButtonTaps).disposed(by: self.bag)
+        scheduler4.start()
+        
+        //Assert
+        XCTAssertNotNil(self.extractValue(from: observer), "Failed to emit success")
+    }
+    
+    func testSaveButtonTaps_when_errorSavingData_then_emitError() {
+        //Arrange
+        let scheduler1 = TestScheduler(initialClock: 0)
+        let scheduler2 = TestScheduler(initialClock: 0)
+        let scheduler3 = TestScheduler(initialClock: 0)
+        let scheduler4 = TestScheduler(initialClock: 0)
+        let observer = scheduler4.createObserver((errorOccurred: Bool, title: String, message: String).self)
+        self.testee.outputs.error.subscribe(observer).disposed(by: self.bag)
+        scheduler1.createColdObservable([next(100, ())]).asObservable().bind(to: self.testee.inputs.viewDidLoad).disposed(by: self.bag)
+        scheduler2.createColdObservable([next(100, "Name")]).bind(to: self.testee.inputs.nameText).disposed(by: self.bag)
+        scheduler3.createColdObservable([next(100, "Notes")]).bind(to: self.testee.inputs.notesText).disposed(by: self.bag)
+        self.mockLocalTaskService.saveStub = scheduler4.createColdObservable([error(100, DataAccessorError.failedToAccessDatabase)]).asObservable()
+        scheduler1.start()
+        scheduler2.start()
+        scheduler3.start()
+        
+        //Act
+        scheduler4.createColdObservable([next(100, ())]).bind(to: self.testee.inputs.saveButtonTaps).disposed(by: self.bag)
+        scheduler4.start()
+        
+        //Assert
+        XCTAssertNotNil(self.extractValue(from: observer), "Failed to emit error")
+    }
 }

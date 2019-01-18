@@ -44,6 +44,7 @@ class EditTaskViewModel: EditTaskViewModelType, EditTaskViewModelInputs, EditTas
     private let initialSnapshot = PublishSubject<TaskModelSnapshot>()
     private let snapshot = PublishSubject<TaskModelSnapshot>()
     private let selectedItemType = PublishSubject<EditTaskTableItemType>()
+    private let saveTaskResult = PublishSubject<OperationResult<Void>>()
     
     var inputs: EditTaskViewModelInputs { return self }
     var outputs: EditTaskViewModelOutputs { return self }
@@ -97,6 +98,16 @@ class EditTaskViewModel: EditTaskViewModelType, EditTaskViewModelInputs, EditTas
             .map { $0! }
             .bind(to: self.selectedItemType)
             .disposed(by: self.bag)
+        self.inputs.saveButtonTaps
+            .withLatestFrom(self.snapshot)
+            .flatMapLatest { input -> Observable<OperationResult<Void>> in
+                let task = TaskEntity()
+                task.name = input.name
+                task.notes = input.notes
+                let operation = self.localTaskService.save(task: task)
+                return self.converter.convert(result: operation)
+            }.bind(to: self.saveTaskResult)
+            .disposed(by: self.bag)
         
         self.initialSnapshot
             .bind(to: self.snapshot)
@@ -122,6 +133,13 @@ class EditTaskViewModel: EditTaskViewModelType, EditTaskViewModelInputs, EditTas
             .map { $0.notes }
             .bind(to: self.outputs.editNotes)
             .disposed(by: self.bag)
+        self.saveTaskResult
+            .filter { $0.resultValue != nil }
+            .map { _ in return }
+            .bind(to: self.outputs.taskSaved)
+            .disposed(by: self.bag)
+        
+        self.bindError(of: self.saveTaskResult, disposedWith: self.bag)
     }
     
     private func createSections(from snapshot: TaskModelSnapshot) -> [TitleValueTableSection] {
