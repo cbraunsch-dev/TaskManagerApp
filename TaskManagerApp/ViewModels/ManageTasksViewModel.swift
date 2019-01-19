@@ -12,6 +12,7 @@ import RxCocoa
 
 protocol ManageTasksViewModelInputs {
     var viewDidLoad: PublishSubject<Void> { get }
+    var didSaveTask: PublishSubject<Void> { get }
 }
 
 protocol ManageTasksViewModelOutputs {
@@ -33,6 +34,7 @@ class ManageTasksViewModel: ManageTasksViewModelType, ManageTasksViewModelInputs
     var outputs: ManageTasksViewModelOutputs { return self }
     
     let viewDidLoad = PublishSubject<Void>()
+    let didSaveTask = PublishSubject<Void>()
     let sections = PublishSubject<[GenericTableSection]>()
     
     init(localTaskService: LocalTaskService, converter: ResultConverter) {
@@ -40,6 +42,12 @@ class ManageTasksViewModel: ManageTasksViewModelType, ManageTasksViewModelInputs
         self.converter = converter
         
         self.inputs.viewDidLoad
+            .flatMapLatest { _ -> Observable<OperationResult<[TaskEntity]>> in
+                let operation = self.localTaskService.readAll()
+                return self.converter.convert(result: operation)
+            }.bind(to: self.readTasksResult)
+            .disposed(by: self.bag)
+        self.inputs.didSaveTask
             .flatMapLatest { _ -> Observable<OperationResult<[TaskEntity]>> in
                 let operation = self.localTaskService.readAll()
                 return self.converter.convert(result: operation)

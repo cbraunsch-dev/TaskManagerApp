@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0B9E2461ADAC222DE352E41A /* Pods_TaskManagerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D50C91E74DA66F3906A234 /* Pods_TaskManagerApp.framework */; };
 		660D19FA21F38E84009601C8 /* TestDataGenerating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660D19F921F38E84009601C8 /* TestDataGenerating.swift */; };
+		660D19FC21F39285009601C8 /* AlertDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660D19FB21F39285009601C8 /* AlertDisplayable.swift */; };
+		660D19FE21F39735009601C8 /* ManageTasksViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660D19FD21F39735009601C8 /* ManageTasksViewModelTests.swift */; };
 		6613716B21F03B2A00732155 /* Lenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6613716A21F03B2A00732155 /* Lenses.swift */; };
 		661F9DE821E85E130000F457 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661F9DE721E85E130000F457 /* AppDelegate.swift */; };
 		661F9DEF21E85E150000F457 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 661F9DEE21E85E150000F457 /* Assets.xcassets */; };
@@ -97,6 +99,8 @@
 /* Begin PBXFileReference section */
 		3E71482CC1665606DCF9C1FA /* Pods-TaskManagerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskManagerApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaskManagerApp/Pods-TaskManagerApp.release.xcconfig"; sourceTree = "<group>"; };
 		660D19F921F38E84009601C8 /* TestDataGenerating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataGenerating.swift; sourceTree = "<group>"; };
+		660D19FB21F39285009601C8 /* AlertDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDisplayable.swift; sourceTree = "<group>"; };
+		660D19FD21F39735009601C8 /* ManageTasksViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTasksViewModelTests.swift; sourceTree = "<group>"; };
 		6613716A21F03B2A00732155 /* Lenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lenses.swift; sourceTree = "<group>"; };
 		661F9DE421E85E130000F457 /* TaskManagerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskManagerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		661F9DE721E85E130000F457 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 				66D38A3E21EDA84E003274D4 /* AppConstants.swift */,
 				6613716A21F03B2A00732155 /* Lenses.swift */,
 				66B7CC9721F1A2D600BE8464 /* RealmConfigurationProvider.swift */,
+				660D19FB21F39285009601C8 /* AlertDisplayable.swift */,
 			);
 			path = TaskManagerApp;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				66B7CC8B21F193EA00BE8464 /* EditTaskViewModelTests.swift */,
+				660D19FD21F39735009601C8 /* ManageTasksViewModelTests.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -701,6 +707,7 @@
 				665961EE21EC5A6900E6ED5C /* EditTaskViewController.swift in Sources */,
 				665961D821EC513F00E6ED5C /* TableItem.swift in Sources */,
 				66B7CC9A21F1A39B00BE8464 /* Realm+Extension.swift in Sources */,
+				660D19FC21F39285009601C8 /* AlertDisplayable.swift in Sources */,
 				665961E221EC51E800E6ED5C /* GenericTableSection.swift in Sources */,
 				665961EC21EC59F800E6ED5C /* SegueHandlerType.swift in Sources */,
 				66F72F7421E86063006B6878 /* ManageTasksViewController.swift in Sources */,
@@ -720,6 +727,7 @@
 				665961C121EC470100E6ED5C /* AssertionDataExtractionCapable.swift in Sources */,
 				66D38A3A21EDA222003274D4 /* Mocks.swift in Sources */,
 				660D19FA21F38E84009601C8 /* TestDataGenerating.swift in Sources */,
+				660D19FE21F39735009601C8 /* ManageTasksViewModelTests.swift in Sources */,
 				66B7CC8C21F193EA00BE8464 /* EditTaskViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

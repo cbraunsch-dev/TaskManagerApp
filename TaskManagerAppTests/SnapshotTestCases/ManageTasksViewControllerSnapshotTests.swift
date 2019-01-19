@@ -66,4 +66,22 @@ class ManageTasksViewControllerSnapshotTests: FBSnapshotTestCase, TestDataGenera
         //Assert
         verifyViewController(viewController: self.navigationViewController)
     }
+    
+    func testDidSaveTask_then_showAddedTask() {
+        //Arrange
+        let scheduler1 = TestScheduler(initialClock: 0)
+        let scheduler2 = TestScheduler(initialClock: 0)
+        self.mockLocalTaskService.readStub = scheduler1.createColdObservable([next(100, [TaskEntity]())]).asObservable()
+        self.loadView(of: self.viewController)
+        scheduler1.start()
+        
+        //Act
+        let tasks = self.createDummyTasks1()
+        self.mockLocalTaskService.readStub = scheduler2.createColdObservable([next(100, tasks)]).asObservable()
+        scheduler2.createColdObservable([next(100, ())]).asObservable().bind(to: self.viewModel.inputs.didSaveTask).disposed(by: self.bag)
+        scheduler2.start()
+        
+        //Assert
+        verifyViewController(viewController: self.navigationViewController)
+    }
 }

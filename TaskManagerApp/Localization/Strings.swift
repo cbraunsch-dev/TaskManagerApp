@@ -13,16 +13,28 @@ import Foundation
 internal enum L10n {
 
   internal enum Action {
+    /// Cancel
+    internal static let cancel = L10n.tr("Localizable", "action.cancel")
+    /// OK
+    internal static let ok = L10n.tr("Localizable", "action.ok")
     internal enum Task {
+      /// Edit name
+      internal static let editName = L10n.tr("Localizable", "action.task.editName")
+      /// Edit notes
+      internal static let editNotes = L10n.tr("Localizable", "action.task.editNotes")
       internal enum EditName {
         /// E.g. Buy food
         internal static let hint = L10n.tr("Localizable", "action.task.editName.hint")
+        /// Enter a name for your task
+        internal static let info = L10n.tr("Localizable", "action.task.editName.info")
         /// Name
         internal static let title = L10n.tr("Localizable", "action.task.editName.title")
       }
       internal enum EditNotes {
         /// Additional notes...
         internal static let hint = L10n.tr("Localizable", "action.task.editNotes.hint")
+        /// Enter some notes for your task
+        internal static let info = L10n.tr("Localizable", "action.task.editNotes.info")
         /// Notes
         internal static let title = L10n.tr("Localizable", "action.task.editNotes.title")
       }

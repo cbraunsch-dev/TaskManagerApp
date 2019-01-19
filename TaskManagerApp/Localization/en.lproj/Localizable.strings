@@ -11,10 +11,16 @@
 
 "table.item.placeholder.noTasksAvailable" = "You have not added any tasks yet";
 
+"action.task.editName" = "Edit name";
 "action.task.editName.title" = "Name";
 "action.task.editName.hint" = "E.g. Buy food";
+"action.task.editName.info" = "Enter a name for your task";
+"action.task.editNotes" = "Edit notes";
 "action.task.editNotes.title" = "Notes";
 "action.task.editNotes.hint" = "Additional notes...";
+"action.task.editNotes.info" = "Enter some notes for your task";
+"action.ok" = "OK";
+"action.cancel" = "Cancel";
 
 "error.generic.short" = "Error";
 "error.generic" = "An error occurred";

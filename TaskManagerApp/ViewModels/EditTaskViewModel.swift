@@ -139,6 +139,10 @@ class EditTaskViewModel: EditTaskViewModelType, EditTaskViewModelInputs, EditTas
             .bind(to: self.outputs.taskSaved)
             .disposed(by: self.bag)
         
+        self.outputs.taskSaved
+            .bind(to: self.outputs.dismissView)
+            .disposed(by: self.bag)
+        
         self.bindError(of: self.saveTaskResult, disposedWith: self.bag)
     }
     

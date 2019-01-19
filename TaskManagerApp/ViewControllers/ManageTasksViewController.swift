@@ -63,4 +63,22 @@ class ManageTasksViewController: UIViewController, TableDisplayCapable, SegueHan
         cell.textLabel?.text = item.title
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let segueIdentifier = segueIdentifierForSegue(segue: segue) {
+            switch segueIdentifier {
+            case .addTask:
+                let navigationController = segue.destination as! UINavigationController
+                let targetVC = navigationController.topViewController as! EditTaskViewController
+                targetVC.delegate = self
+                break
+            }
+        }
+    }
+}
+
+extension ManageTasksViewController: EditTaskViewControllerDelegate {
+    func didSaveTask() {
+        self.viewModel.inputs.didSaveTask.onNext(())
+    }
 }
