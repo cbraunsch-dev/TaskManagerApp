@@ -27,7 +27,7 @@ extension AlertDisplayable where Self: UIViewController {
         self.present(alert, animated: true)
     }
     
-    func showMessageAlertWithTextField(title: String, message: String, actionTitle: String, placeholder: String, confirmAction: @escaping (_: String) -> Void) {
+    func showMessageAlertWithTextField(title: String, message: String, actionTitle: String, placeholder: String, text: String?, confirmAction: @escaping (_: String) -> Void) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: actionTitle, style: .default) { action in
             guard let textFields = alert.textFields else {
@@ -50,6 +50,7 @@ extension AlertDisplayable where Self: UIViewController {
         alert.addAction(alertAction)
         alert.addTextField() { textField in
             textField.placeholder = placeholder
+            textField.text = text
         }
         self.present(alert, animated: true)
     }

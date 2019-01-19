@@ -49,12 +49,12 @@ class EditTaskViewController: UIViewController, TableDisplayCapable, AlertDispla
             .bind(to: self.saveButton.rx.isEnabled)
             .disposed(by: self.bag)
         self.viewModel.outputs.editName.subscribe(onNext: { name in
-            self.showMessageAlertWithTextField(title: L10n.Action.Task.editName, message: L10n.Action.Task.EditName.info, actionTitle: L10n.Action.ok, placeholder: L10n.Action.Task.EditName.hint, confirmAction: { newName in
+            self.showMessageAlertWithTextField(title: L10n.Action.Task.editName, message: L10n.Action.Task.EditName.info, actionTitle: L10n.Action.ok, placeholder: L10n.Action.Task.EditName.hint, text: name, confirmAction: { newName in
                 self.viewModel.inputs.nameText.onNext(newName)
             })
         }).disposed(by: self.bag)
         self.viewModel.outputs.editNotes.subscribe(onNext: { notes in
-            self.showMessageAlertWithTextField(title: L10n.Action.Task.editNotes, message: L10n.Action.Task.EditNotes.info, actionTitle: L10n.Action.ok, placeholder: L10n.Action.Task.EditNotes.hint, confirmAction: { newNotes in
+            self.showMessageAlertWithTextField(title: L10n.Action.Task.editNotes, message: L10n.Action.Task.EditNotes.info, actionTitle: L10n.Action.ok, placeholder: L10n.Action.Task.EditNotes.hint, text: notes, confirmAction: { newNotes in
                 self.viewModel.inputs.notesText.onNext(newNotes)
             })
         }).disposed(by: self.bag)
