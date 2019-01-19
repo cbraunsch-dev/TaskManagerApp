@@ -34,7 +34,10 @@ let appContainer: Container = {
     }
     
     container.register(ManageTasksViewModelType.self) { r in
-        ManageTasksViewModel()
+        ManageTasksViewModel(
+            localTaskService: r.resolve(LocalTaskService.self)!,
+            converter: r.resolve(ResultConverter.self)!
+        )
     }
     container.register(EditTaskViewModelType.self) { r in
         EditTaskViewModel(

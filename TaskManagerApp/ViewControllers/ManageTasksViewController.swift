@@ -49,6 +49,9 @@ class ManageTasksViewController: UIViewController, TableDisplayCapable, SegueHan
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard self.sections.count > section else {
+            return 0
+        }
         return self.sections[section].items.count
     }
     
