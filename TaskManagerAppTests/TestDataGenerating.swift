@@ -26,7 +26,7 @@ extension TestDataGenerating {
         
         let task3 = TaskEntity()
         task3.name = "Call insurance company"
-        task3.name = "Car might need new tires"
+        task3.notes = "Car might need new tires"
         
         return [task1, task2, task3]
     }
