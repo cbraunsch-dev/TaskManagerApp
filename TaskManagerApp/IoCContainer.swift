@@ -12,8 +12,12 @@ import Swinject
 let appContainer: Container = {
     let container = Container()
     
-    container.register(TaskDataAccessor.self) { _ in
-        RealmTaskDataAccessor()
+    container.register(RealmConfigurationProvider.self) { _ in
+        TaskManagerRealmConfigurationProvider()
+    }
+    
+    container.register(TaskDataAccessor.self) { r in
+        RealmTaskDataAccessor(configurationProvider: r.resolve(RealmConfigurationProvider.self)!)
     }
     
     container.register(LoggingService.self) { _ in

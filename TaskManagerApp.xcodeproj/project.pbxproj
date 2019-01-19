@@ -32,6 +32,13 @@
 		665961EC21EC59F800E6ED5C /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665961EB21EC59F800E6ED5C /* SegueHandlerType.swift */; };
 		665961EE21EC5A6900E6ED5C /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665961ED21EC5A6900E6ED5C /* EditTaskViewController.swift */; };
 		66B7CC8C21F193EA00BE8464 /* EditTaskViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B7CC8B21F193EA00BE8464 /* EditTaskViewModelTests.swift */; };
+		66B7CC8E21F19FE800BE8464 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B7CC8D21F19FE800BE8464 /* Realm.framework */; };
+		66B7CC8F21F19FE800BE8464 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 66B7CC8D21F19FE800BE8464 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		66B7CC9221F19FF000BE8464 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B7CC9121F19FEF00BE8464 /* RealmSwift.framework */; };
+		66B7CC9321F19FF000BE8464 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 66B7CC9121F19FEF00BE8464 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		66B7CC9621F1A2A800BE8464 /* DataAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B7CC9521F1A2A800BE8464 /* DataAccessor.swift */; };
+		66B7CC9821F1A2D600BE8464 /* RealmConfigurationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B7CC9721F1A2D600BE8464 /* RealmConfigurationProvider.swift */; };
+		66B7CC9A21F1A39B00BE8464 /* Realm+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B7CC9921F1A39B00BE8464 /* Realm+Extension.swift */; };
 		66D38A1721ED94AB003274D4 /* EditTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A1621ED94AB003274D4 /* EditTaskViewModel.swift */; };
 		66D38A1921ED95BD003274D4 /* TitleValueTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A1821ED95BD003274D4 /* TitleValueTableItem.swift */; };
 		66D38A1B21ED95F9003274D4 /* TitleValueTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D38A1A21ED95F9003274D4 /* TitleValueTableSection.swift */; };
@@ -71,6 +78,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		66B7CC9021F19FE800BE8464 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				66B7CC9321F19FF000BE8464 /* RealmSwift.framework in Embed Frameworks */,
+				66B7CC8F21F19FE800BE8464 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3E71482CC1665606DCF9C1FA /* Pods-TaskManagerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskManagerApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaskManagerApp/Pods-TaskManagerApp.release.xcconfig"; sourceTree = "<group>"; };
 		6613716A21F03B2A00732155 /* Lenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lenses.swift; sourceTree = "<group>"; };
@@ -103,6 +125,11 @@
 		665961EB21EC59F800E6ED5C /* SegueHandlerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
 		665961ED21EC5A6900E6ED5C /* EditTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewController.swift; sourceTree = "<group>"; };
 		66B7CC8B21F193EA00BE8464 /* EditTaskViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewModelTests.swift; sourceTree = "<group>"; };
+		66B7CC8D21F19FE800BE8464 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		66B7CC9121F19FEF00BE8464 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		66B7CC9521F1A2A800BE8464 /* DataAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAccessor.swift; sourceTree = "<group>"; };
+		66B7CC9721F1A2D600BE8464 /* RealmConfigurationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmConfigurationProvider.swift; sourceTree = "<group>"; };
+		66B7CC9921F1A39B00BE8464 /* Realm+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+Extension.swift"; sourceTree = "<group>"; };
 		66D38A1621ED94AB003274D4 /* EditTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewModel.swift; sourceTree = "<group>"; };
 		66D38A1821ED95BD003274D4 /* TitleValueTableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleValueTableItem.swift; sourceTree = "<group>"; };
 		66D38A1A21ED95F9003274D4 /* TitleValueTableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleValueTableSection.swift; sourceTree = "<group>"; };
@@ -141,7 +168,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66B7CC8E21F19FE800BE8464 /* Realm.framework in Frameworks */,
 				0B9E2461ADAC222DE352E41A /* Pods_TaskManagerApp.framework in Frameworks */,
+				66B7CC9221F19FF000BE8464 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +188,8 @@
 		661F9DDB21E85E130000F457 = {
 			isa = PBXGroup;
 			children = (
+				66B7CC9121F19FEF00BE8464 /* RealmSwift.framework */,
+				66B7CC8D21F19FE800BE8464 /* Realm.framework */,
 				661F9DE621E85E130000F457 /* TaskManagerApp */,
 				661F9DFB21E85E150000F457 /* TaskManagerAppTests */,
 				661F9DE521E85E130000F457 /* Products */,
@@ -210,6 +241,7 @@
 				66D38A3521ED9F77003274D4 /* ErrorBindable.swift */,
 				66D38A3E21EDA84E003274D4 /* AppConstants.swift */,
 				6613716A21F03B2A00732155 /* Lenses.swift */,
+				66B7CC9721F1A2D600BE8464 /* RealmConfigurationProvider.swift */,
 			);
 			path = TaskManagerApp;
 			sourceTree = "<group>";
@@ -297,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				66D38A2321ED98D4003274D4 /* TaskDataAccessor.swift */,
+				66B7CC9521F1A2A800BE8464 /* DataAccessor.swift */,
 			);
 			path = DataAccessors;
 			sourceTree = "<group>";
@@ -350,6 +383,7 @@
 				66F72F7A21E86538006B6878 /* SwinjectStoryboard+Extension.swift */,
 				665961E721EC555000E6ED5C /* UITableViewCell+Extension.swift */,
 				665961E921EC556700E6ED5C /* UITableView+Extension.swift */,
+				66B7CC9921F1A39B00BE8464 /* Realm+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -387,6 +421,8 @@
 				661F9DE221E85E130000F457 /* Resources */,
 				679634279EE3652CB905583F /* [CP] Embed Pods Frameworks */,
 				665961C621EC4CF600E6ED5C /* ShellScript */,
+				66B7CC9021F19FE800BE8464 /* Embed Frameworks */,
+				66B7CC9421F1A0B500BE8464 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -517,6 +553,23 @@
 			shellPath = /bin/sh;
 			shellScript = "if which \"$PROJECT_DIR\"/swiftgen/bin/swiftgen >/dev/null; then\n\"$PROJECT_DIR\"/swiftgen/bin/swiftgen strings \"$PROJECT_DIR/TaskManagerApp/Localization/en.lproj/Localizable.Strings\" --output \"$PROJECT_DIR/TaskManagerApp/Localization/Strings.swift\" -template structured-swift4\nelse\necho \"warning: SwiftGen not installed. Unable to generate Strings.swift file from Localizable Strings. Download SwiftGen from https://github.com/AliSoftware/SwiftGen\"\nfi\n";
 		};
+		66B7CC9421F1A0B500BE8464 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"\n";
+		};
 		679634279EE3652CB905583F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -622,6 +675,8 @@
 				66D38A4421EDAA64003274D4 /* TitleValueTableViewCell.swift in Sources */,
 				66D38A2621ED9A01003274D4 /* LocalTaskService.swift in Sources */,
 				66D38A2E21ED9D18003274D4 /* ResultConverter.swift in Sources */,
+				66B7CC9821F1A2D600BE8464 /* RealmConfigurationProvider.swift in Sources */,
+				66B7CC9621F1A2A800BE8464 /* DataAccessor.swift in Sources */,
 				665961E021EC51D100E6ED5C /* GenericTableItem.swift in Sources */,
 				665961C521EC482400E6ED5C /* StoryboardName.swift in Sources */,
 				665961E821EC555000E6ED5C /* UITableViewCell+Extension.swift in Sources */,
@@ -642,6 +697,7 @@
 				665961DE21EC519D00E6ED5C /* TableItemAction.swift in Sources */,
 				665961EE21EC5A6900E6ED5C /* EditTaskViewController.swift in Sources */,
 				665961D821EC513F00E6ED5C /* TableItem.swift in Sources */,
+				66B7CC9A21F1A39B00BE8464 /* Realm+Extension.swift in Sources */,
 				665961E221EC51E800E6ED5C /* GenericTableSection.swift in Sources */,
 				665961EC21EC59F800E6ED5C /* SegueHandlerType.swift in Sources */,
 				66F72F7421E86063006B6878 /* ManageTasksViewController.swift in Sources */,
@@ -820,6 +876,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TaskManagerApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -838,6 +898,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TaskManagerApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -857,6 +921,22 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxAtomic\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxBlocking\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxSwift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxTest\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/iOSSnapshotTestCase\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxAtomic\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxCocoa\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxSwift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SnapKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Swinject\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwinjectStoryboard\"",
+					"\"${PROJECT_DIR}\"",
+				);
 				INFOPLIST_FILE = TaskManagerAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -878,6 +958,22 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxAtomic\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxBlocking\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxSwift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxTest\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/iOSSnapshotTestCase\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxAtomic\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxCocoa\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxSwift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SnapKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Swinject\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwinjectStoryboard\"",
+					"\"${PROJECT_DIR}\"",
+				);
 				INFOPLIST_FILE = TaskManagerAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
