@@ -183,13 +183,198 @@ RxSwift together with RxTest is an incredibly powerful tool for modelling the be
 
 ## Snapshot Tests
 
+Snapshot Tests are a form of automated test. The framework I use is [Uber's Snapshot Testing framework for iOS](https://github.com/uber/ios-snapshot-test-case). I believe the original framework was developed by Facebook.
+
+In short, a Snapshot Test runs your app and takes a screenshot of the contents on screen. It then compares this screenshot to a reference screenshot you already took and fails the test if the two screenshots differ. So in a first step, you record your reference screenshots and once you decide that your ViewController or View looks the way you want it to, you stop recording and simply run the Snapshot Test again to make sure that your ViewControllers and Views still look like they did when you recorded the tests.
+
+Snapshot Tests have the following benefits:
+
+- They allow you to do a form of rapid UI prototyping that follows the TDD flow
+- They protect your UI against regressions
+- They allow you to quickly generate screenshots of your app in various states
+
+A Snapshot Test looks like this:
+
+```
+func testNameText_when_onlyNameText_then_keepSaveButtonDisabled() {
+        //Arrange
+        let scheduler1 = TestScheduler(initialClock: 0)
+        let scheduler2 = TestScheduler(initialClock: 0)
+        self.loadView(of: self.viewController)
+        scheduler1.createColdObservable([next(100, ())]).asObservable().bind(to: self.testee.inputs.viewDidLoad).disposed(by: self.bag)
+        scheduler1.start()
+        
+        //Act
+        scheduler2.createColdObservable([next(100, "Clean room")]).asObservable().bind(to: self.testee.inputs.nameText).disposed(by: self.bag)
+        scheduler2.start()
+        
+        //Assert
+        verifyViewController(viewController: self.navigationViewController)
+    }
+```
+
+If we set the `self.recordMode` property to `true` and run the test, we will record a reference image. If the flag is set to `false`, the test will simply compare the current state of the ViewController of View to the reference screenshot.
+
+Snapshot Tests run almost as quickly as unit tests. However they tend to cover a bit more code since they also cover your ViewController and Views. This is helpful because they also cover if a lot of your binding code is wired up properly.
+
 ## Integration Tests
+Using ViewModels and RxSwift's RxBlocking framework it is fairly easy to write integration tests that cover entire workflows. All you basically need to do is wire up one ViewModel's outputs to the succeeding ViewModel's inputs. Take the following example that tests the workflow of registering a new user and having that user verify his email address:
+
+```
+//Register
+            self.registrationViewModel.inputs.firstName.value = firstName
+            self.registrationViewModel.inputs.lastName.value = lastName
+            self.registrationViewModel.inputs.email.value = email
+            self.registrationViewModel.inputs.password.onNext(password)
+            self.registrationViewModel.inputs.phoneNumber.onNext(phoneNumber)
+            self.registrationViewModel.inputs.agreedToTerms.value = true
+            self.registrationViewModel.inputs.nextButtonTaps.onNext(())
+            
+            guard let showVerificationScreen = self.value(of: self.registrationViewModel.outputs.showVerificationScreen) else {
+                XCTFail("Failed to show verification screen")
+                return
+            }
+            XCTAssertEqual(email, showVerificationScreen.email)
+            XCTAssertEqual(password, showVerificationScreen.password)
+            XCTAssertEqual(phoneNumber, showVerificationScreen.phoneNumber)
+            
+            //Verify user and register device
+            self.emailVerificationViewModel.inputs.viewDidLoad.onNext(())
+            self.emailVerificationViewModel.inputs.email.onNext(email)
+            self.emailVerificationViewModel.inputs.password.onNext(password)
+            self.emailVerificationViewModel.inputs.phoneNumber.onNext(phoneNumber)
+            self.emailVerificationViewModel.inputs.nextButtonTaps.onNext(())
+```
+The helper method to extract a value out of a ViewModel's output could look like this:
+
+```
+private func value<E>(of sequence: Observable<E>) -> E? {
+        guard let result = try? sequence.toBlocking(timeout: self.timeout).first() else {
+            return nil
+        }
+        return result
+    }
+```
+
+In this example, the test first feeds all the information into the `RegistrationViewModel` just as a user would. The first name, last name, phone number etc. are entered. Then the next button is pressed. The `RegistrationViewModel` then does some processing and returns us a result via one of its outputs. Before emitting an output, the `RegistrationViewModel` may be doing an API request, for example. Once we receive the output from the `RegistrationViewModel`, we pass the necessary data to the next ViewModel in the workflow. This test can span multiple ViewModels if it needs to test a more complex workflow. The above code is incomplete but it shows the potential of using MVVM together with a framework such as RxSwift to write easily understandable and powerful integration tests. And again, this is all without the use of a UI automation framework.
 
 ## Asynchronous Code
 
+Using a reactive framework such as RxSwift makes the writing of asynchronous code much easier. Using callbacks for simple asynchronous operations may suffice but as soon as you need to chain multiple asynchronous operations together, using callbacks does not scale well. With RxSwift, however, chaining together multiple asynchronous calls works very well and remains very legible. Take the following example which interacts with bluetooth peripheral and also sends data to a web API:
+
+```
+func readPeripheralData(uuid: String) -> Observable<Void> {
+    return self.bluetoothService.checkIfBluetoothEnabled()
+        .flatMapLatest { _ -> Observable<Void> in
+            self.bluetoothService.connectToPeripheral(uuid: uuid)
+        }.flatMapLatest { _ -> Observable<Void> in
+            return self.bluetoothService.discoverService()
+        }.flatMapLatest { _ -> Observable<Void> in
+            self.bluetoothService.discoverDataCharacteristic()
+        }.flatMapLatest { _ -> Observable<Data> in
+            self.bluetoothService.readDataCharacteristic()
+        }.flatMapLatest { data -> Observable<Void> in
+            return self.apiService.submitData(data: data)
+        }.flatMapLatest { _ -> Observable<Void> in
+            self.bluetoothService.unsubscribeFromCommandResponseCharacteristic()
+        }.flatMapLatest { _ -> Observable<Void> in
+            self.bluetoothService.disconnectFromPeripheral()
+        }.do(onError: { _ in
+            _ = self.bluetoothService.disconnectFromPeripheral()
+        })
+}
+```
+
+Each of the calls that is made is an asynchronouse call. Using RxSwift we can beautifully chain these calls together.
+
 ## Composition
+
+In order to compose functionality easily, I found it best to create small, cohesive components that I could compose together into larget components. This allowed me to write and test functionality in just one place and to re-use that functionality wherever I needed to. In the apps I've worked on I usually called these re-usable components UseCases. More basic UseCases would encapsulate low-level functions and would then be composed into more higher-level and more complex UseCases. Take the following sample UseCases, for instance:
+
+```
+protocol CallUseCase {
+    func call(user: String, muted: Bool) -> Observable<SipCallInfo>
+}
+
+class SampleCallUseCase: CallUseCase {
+    private let bag = DisposeBag()
+    private let registerUseCase: RegisterWithSipUseCase
+    private let localSipServerSettingsService: LocalSipServerSettingsService
+    private let sipService: SipService
+    
+    init(registerUseCase: RegisterWithSipUseCase, localSipServerSettingsService: LocalSipServerSettingsService, sipService: SipService) {
+        self.registerUseCase = registerUseCase
+        self.localSipServerSettingsService = localSipServerSettingsService
+        self.sipService = sipService
+    }
+    
+    func call(user: String, muted: Bool) -> Observable<SipCallInfo> {
+        return self.registerUseCase.register()
+            .flatMapLatest { _ -> Observable<SipServerSettingsEntity?> in
+                self.localSipServerSettingsService.read()
+            }.filter { $0 != nil }
+            .map { $0! }
+            .flatMapLatest { serverSettings -> Observable<SipCallInfo> in
+                self.sipService.call(user: user), on: serverSettings.serverUrl, muted: muted)
+            }.distinctUntilChanged()
+    }
+}
+```
+
+This UseCase uses the SIP protocol to place a VoIP call. It first uses the `RegisterWithSipUseCase` to register the user using on SIP. It then loads some local user settings and places the call. Now look at the following UseCase:
+
+```
+protocol SendDtmfCommandUseCase {
+    func sendDtmfCommand(command: String, callerId: String) -> Observable<Void>
+}
+
+class SampleSendDtmfCommandUseCase: SendDtmfCommandUseCase, SchedulingCapable {
+    private let sipService: SipService
+    private let callUseCase: CallUseCase
+    
+    init(sipService: SipService, callUseCase: CallUseCase) {
+        self.sipService = sipService
+        self.callUseCase = callUseCase
+    }
+    
+    func sendDtmfCommand(command: String, callerId: String) -> Observable<Void> {
+        return self.callUseCase.call(user: callerId, muted: true)
+            .flatMapLatest { callInfo -> Observable<Void> in
+                self.sipService.sendCommand(callId: callInfo.callId, command: command)
+            }.flatMapLatest { _ -> Observable<Void> in
+                self.sipService.hangup()
+        }
+    }
+}
+```
+
+This UseCase uses the aforementioned `CallUseCase` to first place a call to a user and then send a command to that user over SIP (using what's called DTMF).
+
+Both of these UseCases have their own suite of unit tests that verify that their behavior is as specified. The UseCases can then very easily be injected into various higher level components (either higher-level UseCases or ViewModels).
 
 ## Appendix
 
 ### Localizable Strings
+I use [SwiftGen](https://github.com/SwiftGen/SwiftGen) to generate Swift types out of my localizable string resources. This allows me to access my localized strings in a compiler-checked way. A string in my localizable File looks like this:
+
+`"action.task.editName.hint" = "E.g. Buy food";`
+
+I access this string like this:
+
+`L10n.Action.Task.EditName.hint`
+
 ### ResultConverter
+
+You may have noticed code such as the following before:
+
+```
+.flatMapLatest { input -> Observable<OperationResult<Void>> in
+                let task = TaskEntity()
+                task.name = input.name
+                task.notes = input.notes
+                let operation = self.localTaskService.save(task: task)
+                return self.converter.convert(result: operation)
+            }.bind(to: self.saveTaskResult)
+```
+
+In particular, you may have noticed that the return type of the flatMapLatest call is wrapped in an `OperationResult`. The reason why this is necessary is because if the `localTaskService.save()` method emits an error, we have to make sure that our Observable sequence doesn't get terminated. Observable sequences get terminated when they emit an error. However, by wrapping it in the `OperationResult` using the `ResultConverter` we allow the sequence to continue even if an error occurs while at the same time emitting info about the error in a ViewModel-friendly way.
