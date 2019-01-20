@@ -221,7 +221,7 @@ Snapshot Tests run almost as quickly as unit tests. However they tend to cover a
 Using ViewModels and RxSwift's RxBlocking framework it is fairly easy to write integration tests that cover entire workflows. All you basically need to do is wire up one ViewModel's outputs to the succeeding ViewModel's inputs. Take the following example that tests the workflow of registering a new user and having that user verify his email address:
 
 ```
-//Register
+            //Register
             self.registrationViewModel.inputs.firstName.value = firstName
             self.registrationViewModel.inputs.lastName.value = lastName
             self.registrationViewModel.inputs.email.value = email
@@ -275,8 +275,6 @@ func readPeripheralData(uuid: String) -> Observable<Void> {
             self.bluetoothService.readDataCharacteristic()
         }.flatMapLatest { data -> Observable<Void> in
             return self.apiService.submitData(data: data)
-        }.flatMapLatest { _ -> Observable<Void> in
-            self.bluetoothService.unsubscribeFromCommandResponseCharacteristic()
         }.flatMapLatest { _ -> Observable<Void> in
             self.bluetoothService.disconnectFromPeripheral()
         }.do(onError: { _ in
